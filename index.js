@@ -41,8 +41,20 @@ const colorInput = inputBox.value.split(",");
 
 const colorObject = {name: colorInput[0], motto: colorInput[1]};
 
-const searchedColorIndex = colors.findIndex((myColor)=>myColor.name === colorObject.name)
+//find out if the color that user entered is in the existing object, already.
+const searchedColorIndex = colors.findIndex((myColor) => myColor.name === colorObject.name);
 
+if(searchedColorIndex == -1){
+document.querySelector(".container").style.backgroundColor = colorObject.name;
+document.querySelector("#colorName").textContent = colorObject.name;
+document.querySelector("#colorDesc").textContent = colorObject.motto;
+
+colors.push(colorObject);
+user
+
+}else{
+    alert(`${colorObject.name}" is already in the list"`)
+}
 
 
 
