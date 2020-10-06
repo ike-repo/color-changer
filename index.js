@@ -21,7 +21,7 @@ const colors = [{
 ];
 
 const randomColorButton = document.querySelector("#randomColorButton");
-const setColorButton = document.querySelector("#randomColorButton");
+const setColorButton = document.querySelector("#setColorButton");
 
 randomColorButton.addEventListener("click", changeColor);
 setColorButton.addEventListener("click", setNewColor);
@@ -38,7 +38,6 @@ function changeColor(){
 function setNewColor(){
 const inputBox = document.querySelector(".colorInput")
 const colorInput = inputBox.value.split(",");
-
 const colorObject = {name: colorInput[0], motto: colorInput[1]};
 
 //find out if the color that user entered is in the existing object, already.
@@ -50,10 +49,11 @@ document.querySelector("#colorName").textContent = colorObject.name;
 document.querySelector("#colorDesc").textContent = colorObject.motto;
 
 colors.push(colorObject);
-user
+inputBox.value = "";
+inputBox.focus();
 
 }else{
-    alert(`${colorObject.name}" is already in the list"`)
+    alert(colorObject.name + "is already in the list")
 }
 
 
